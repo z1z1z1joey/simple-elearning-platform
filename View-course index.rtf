@@ -1,0 +1,45 @@
+{\rtf1\ansi\ansicpg950\cocoartf1561\cocoasubrtf100
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset136 PingFangTC-Regular;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 <p id="notice"><%= notice %></p>\
+\
+<h1>
+\f1 \'bd\'d2\'b5\'7b\'a6\'43\'aa\'ed
+\f0 </h1>\
+\
+<table>\
+  <thead>\
+    <tr>\
+      <th>Name</th>\
+      <th colspan="3"></th>\
+    </tr>\
+  </thead>\
+\
+  <tbody>\
+    <% @courses.each do |course| %>\
+      <tr>\
+        <td><%= course.name %></td>\
+        <td><%= link_to '
+\f1 \'b6\'69\'a4\'4a\'bd\'d2\'b5\'7b
+\f0 ', course_path(course)  %></td>\
+        <% if current_user.id == course.user_id %>\
+          <td><%= link_to '
+\f1 \'bd\'73\'bf\'e8
+\f0 ', edit_course_path(course) %></td>\
+          <td><%= link_to '
+\f1 \'a7\'52\'b0\'a3
+\f0 ', course, method: :delete, data: \{ confirm: 'Are you sure?' \} %></td>\
+        <% end %>\
+      </tr>\
+    <% end %>\
+  </tbody>\
+</table>\
+\
+<br>\
+\
+<%= link_to 'New Course', new_course_path %>\
+}
